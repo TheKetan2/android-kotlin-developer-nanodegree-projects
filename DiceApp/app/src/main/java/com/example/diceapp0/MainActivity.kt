@@ -3,10 +3,13 @@ package com.example.diceapp0
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var resultImg:ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,13 +17,20 @@ class MainActivity : AppCompatActivity() {
         rollBtn.setOnClickListener {
             rollDice()
         }
-
+    resultImg = findViewById(R.id.diceImage)
     }
 
     private fun rollDice() {
-        val resultText = Random().nextInt(6)+1
-        val resultTv:TextView = findViewById(R.id.resultTV)
-        resultTv.text = resultText.toString()
+        val resultInt = Random().nextInt(6)+1
+        val drawableResource = when(resultInt){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        resultImg.setImageResource(drawableResource)
     }
 
 }
