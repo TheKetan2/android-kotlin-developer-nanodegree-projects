@@ -6,4 +6,4 @@ It mostly focused on Layouts.
 
 ## Snapshot
 
-![Profile Pic]("profilepic.png")
+![Profile Pic](profilepic.png)
